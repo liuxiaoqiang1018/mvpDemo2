@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.xiaoqiang.mvpdemo2.presenter.BasePresenter;
+import com.xiaoqiang.mvpdemo2.presenter.base.BasePresenter;
 import com.xiaoqiang.mvpdemo2.view.base.BaseView;
 
 

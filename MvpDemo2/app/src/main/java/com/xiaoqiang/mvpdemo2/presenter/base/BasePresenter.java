@@ -1,4 +1,4 @@
-package com.xiaoqiang.mvpdemo2.presenter;
+package com.xiaoqiang.mvpdemo2.presenter.base;
 
 
 import com.xiaoqiang.mvpdemo2.view.base.BaseView;
