@@ -11,10 +11,17 @@ import com.xiaoqiang.mvpdemo2.model.base.BaseModel;
  *
  * @author lxq
  * @2019年4月17日 22:37:45
- *
  */
 public class DataModel {
 
+    /**
+     * 利用泛型进行约束
+     * 利用Class进行反射 获取想要的model
+     *
+     * @param clazz
+     * @param <V>
+     * @return
+     */
     public static <V extends BaseModel> V getModel(Class clazz) {
         V model = null;
         try {

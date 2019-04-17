@@ -43,7 +43,7 @@ public abstract class BaseModel<T extends BaseCallback> {
     }
 
     /**
-     * 执行请求数据
+     * 执行请求数据的抽象方法
      * @param callback 返回结果回调
      */
     public abstract void execute(T callback);
