@@ -26,9 +26,9 @@ public abstract class BaseModel<T extends BaseCallback> {
      * @param value
      * @return
      */
-    public BaseModel param(String key, String value) {
+    public <E extends BaseModel> E param(String key, String value) {
         paramMap.put(key, value);
-        return this;
+        return (E) this;
     }
 
     /**
@@ -37,19 +37,21 @@ public abstract class BaseModel<T extends BaseCallback> {
      * @param map
      * @return
      */
-    public BaseModel param(Map<String, String> map) {
+    public <E extends BaseModel> E param(Map<String, String> map) {
         paramMap.putAll(map);
-        return this;
+        return (E) this;
     }
 
     /**
      * 执行请求数据的抽象方法
+     *
      * @param callback 返回结果回调
      */
     public abstract void execute(T callback);
 
     /**
      * 执行 get请求
+     *
      * @param callback
      */
     protected void get(T callback) {
@@ -58,6 +60,7 @@ public abstract class BaseModel<T extends BaseCallback> {
 
     /**
      * 执行 post请求
+     *
      * @param callback
      */
     protected void post(T callback) {

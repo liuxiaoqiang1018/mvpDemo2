@@ -22,10 +22,10 @@ public class DataModel {
      * @param <V>
      * @return
      */
-    public static <V extends BaseModel> V getModel(Class clazz) {
+    public static <V extends BaseModel> V getModel(Class<V> clazz) {
         V model = null;
         try {
-            model = (V) clazz.newInstance();
+            model = clazz.newInstance();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
