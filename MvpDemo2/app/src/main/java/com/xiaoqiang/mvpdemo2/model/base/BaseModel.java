@@ -8,8 +8,11 @@ import java.util.Map;
 /**
  * 基础model
  * 规范mvp--Model层请求和响应数据
+ * <p>
+ * 使用泛型约束回调类型，所有的回调类型必须继承自BaseCallback
  *
  * @author lxq
+ * @注意 ： 当泛型出现在方法返回值的前面即表示：当前泛型与类的泛型无关
  * @2019年4月17日 22:38:56
  */
 public abstract class BaseModel<T extends BaseCallback> {
@@ -21,7 +24,10 @@ public abstract class BaseModel<T extends BaseCallback> {
 
     /**
      * 接受键值对参数
-     *
+     * <p>
+     * 使用泛型约束返回值类型，因面向对象特性，此处可进行“强制类型转换”或叫“向下造型”
+     * 这样就可以访问子类的开放方法和开放属性
+     *  TODO 此处可能会翻车 抛出ClassCastException,也就是类型转换异常
      * @param key
      * @param value
      * @return
@@ -43,7 +49,7 @@ public abstract class BaseModel<T extends BaseCallback> {
     }
 
     /**
-     * 执行请求数据的抽象方法
+     * 执行具体操作的抽象方法
      *
      * @param callback 返回结果回调
      */

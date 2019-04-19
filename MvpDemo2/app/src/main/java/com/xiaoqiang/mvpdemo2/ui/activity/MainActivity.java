@@ -1,14 +1,21 @@
-package com.xiaoqiang.mvpdemo2;
+package com.xiaoqiang.mvpdemo2.ui.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.xiaoqiang.mvpdemo2.presenter.MvpPresenter;
-import com.xiaoqiang.mvpdemo2.ui.BaseActivity;
-import com.xiaoqiang.mvpdemo2.view.MvpView;
+import com.xiaoqiang.mvpdemo2.R;
+import com.xiaoqiang.mvpdemo2.ui.presenter.MvpPresenter;
+import com.xiaoqiang.mvpdemo2.ui.base.BaseActivity;
+import com.xiaoqiang.mvpdemo2.ui.view.MvpView;
 
 
+/**
+ * @author lxq
+ * @date 2019年4月19日 22:26:33
+ *
+ * 示例MVP
+ */
 public class MainActivity extends BaseActivity<MvpPresenter> implements MvpView {
 
     TextView msg;

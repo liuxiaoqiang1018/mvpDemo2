@@ -1,16 +1,24 @@
-package com.xiaoqiang.mvpdemo2.ui;
+package com.xiaoqiang.mvpdemo2.ui.base;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.xiaoqiang.mvpdemo2.presenter.base.BasePresenter;
-import com.xiaoqiang.mvpdemo2.view.base.BaseView;
+import com.xiaoqiang.mvpdemo2.ui.presenter.base.BasePresenter;
+import com.xiaoqiang.mvpdemo2.ui.view.base.BaseView;
 
 
+/**
+ * @author lxq
+ * @date 2019年4月19日 21:58:00
+ * 基础Activity
+ */
 public abstract class BaseActivity<P extends BasePresenter> extends Activity implements BaseView {
 
+    /**
+     * 使用泛型约束Presenter类型
+     */
     protected P mPresenter;
 
     protected ProgressDialog mProgressDialog;
@@ -19,16 +27,23 @@ public abstract class BaseActivity<P extends BasePresenter> extends Activity imp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
+
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setTitle("正在加载......");
-        mPresenter = getPresenter();
-        mPresenter.attachView(this);
+
+        //判断是否使用MVP模式
+        if ((mPresenter = getPresenter()) != null) {
+            mPresenter.attachView(this);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detachView();
+        if (mPresenter != null) {
+            mPresenter.detachView();
+            mPresenter = null;
+        }
     }
 
     @Override
@@ -60,7 +75,20 @@ public abstract class BaseActivity<P extends BasePresenter> extends Activity imp
         return this;
     }
 
+    /**
+     * 获取layout
+     * 由子类实现
+     *
+     * @return
+     */
     protected abstract int getContentView();
 
+    /**
+     * 获取Presenter
+     * 由子类实现
+     * 如果不使用MVP模式，返回null即可
+     *
+     * @return
+     */
     protected abstract P getPresenter();
 }

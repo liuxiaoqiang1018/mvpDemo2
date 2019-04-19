@@ -10,7 +10,7 @@ import com.xiaoqiang.mvpdemo2.model.base.BaseModel;
 /**
  * @author lxq
  * @2019年4月17日 22:40:44
- * mvp 演示model
+ * Mvp 演示model
  */
 public class MvpModel extends BaseModel<MvpCallback<String>> {
 
@@ -39,4 +39,18 @@ public class MvpModel extends BaseModel<MvpCallback<String>> {
             }
         }, 3000);
     }
+
+    /**
+     * 测试通过顶级数据管理者DataModel获取的Model对象
+     * 是否能强制转换成功并可以访问对外开放的方法
+     */
+    public void test() {
+        System.out.println("test();");
+    }
+
+    /**
+     * 同上 test();
+     */
+    public String test = "test";
+
 }
