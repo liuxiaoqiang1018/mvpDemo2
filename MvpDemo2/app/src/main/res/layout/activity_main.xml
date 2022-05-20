@@ -15,7 +15,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <Button
+        android:id="@+id/getData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求公共Api"
+        app:layout_constraintBottom_toTopOf="@+id/msg"
+        />
     <Button
         android:id="@+id/success"
         android:layout_width="match_parent"
